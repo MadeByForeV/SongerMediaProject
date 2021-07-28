@@ -5,15 +5,15 @@ import { Container } from 'semantic-ui-react';
 import Navi from './layouts/Navi';
 
 
-function App() {
+export default function App() {
   return (
     <div className="App">
-      <Navi/>
+      
+      <Navi />
       <Container className="main">
-         <Dashboard/>
-      </Container>    
+        <Dashboard />
+      </Container>
     </div>
   );
 }
 
-export default App;

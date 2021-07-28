@@ -14,12 +14,10 @@ export default function CartSummary() {
                 <Dropdown.Menu>
                     {
                         cartItems.map((cartItem) => (
-                            <Dropdown.Item key = { cartItem.product.id}>
-                                {cartItem.product.productName}
+                            <Dropdown.Item key = { cartItem.song.id}>
+                                {cartItem.song.songName}
                                 
-                                <Label>
-                                    {cartItem.quantity}
-                                </Label>
+                               
                             </Dropdown.Item>
                         ))
 

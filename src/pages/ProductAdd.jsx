@@ -5,19 +5,19 @@ import { Button,  FormField, Label } from 'semantic-ui-react'
 import ForeverTextInput from '../utilities/customFormControls/ForeverTextInput'
 
 export default function ProductAdd() {
-    const initialValues = { productName: "", unitPrice: 10 }
+    const initialValues = { songName: "", songSure: "1:00" }
 
     const schema = Yup.object({
-        productName: Yup.string().required("Ürün adı zorunlu"),
-        unitPrice: Yup.number().required("Ürün fiyatı zorunlu"),
+        productName: Yup.string().required("Şarkı Adı Zorunlu"),
+        unitPrice: Yup.number().required("Şarkı Süresi Zorunlu"),
     })
 
     return (
         <div>
             <Formik initialValues={initialValues} validationSchema={schema} onSubmit={(values) => { console.log(values) }} >
                 <Form className="ui form">
-                    <ForeverTextInput name="productName" placeholder="Ürün Adı"/>
-                    <ForeverTextInput name="unitPrice" placeholder="Ürün fiyatı" />
+                    <ForeverTextInput name="songName" placeholder="Şarkı Adı"/>
+                    <ForeverTextInput name="songSure" placeholder="Şarkı Süresi" />
                     <Button color="green" type="submit">Ekle</Button>
                 </Form>
             </Formik>

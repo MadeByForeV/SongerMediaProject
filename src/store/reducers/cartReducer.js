@@ -8,22 +8,22 @@ const initialState = {
 export default function cartReducer(state = initialState, { type, payload }) {
     switch (type) {
         case ADD_TO_CART:
-            let product = state.cartItems.find(c => c.product.id === payload.id)
-            if (product) {
-                product.quantity++
+            let song = state.cartItems.find(c => c.song.id === payload.id)
+            if (song) {
+                song.quantity++
                 return {
                     ...state
                 }
             } else {
                 return {
-                    ...state,
-                    cartItems: [...state.cartItems, { quantity: 1, product: payload }]
+                    ...state, 
+                    cartItems: [...state.cartItems, { quantity: 1, song: payload }]
                 }
             }
         case REMOVE_FROM_CART:
             return {
                 ...state,
-                cartItems: state.cartItems.filter(c => c.product.id !== payload.id)
+                cartItems: state.cartItems.filter(c => c.song.id !== payload.id)
             }
 
         default:

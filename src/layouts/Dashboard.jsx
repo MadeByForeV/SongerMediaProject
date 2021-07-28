@@ -3,11 +3,11 @@ import ProductList from "../pages/ProductList";
 import Categories from "./Categories";
 import { Grid } from "semantic-ui-react";
 import { Route } from "react-router";
-import ProductDetail from "../pages/ProductDetail";
+import CreatorDetail from "../pages/CreatorDetail";
 import CartDetail from "../pages/CartDetail";
 import { ToastContainer } from "react-toastify";
 import ProductAdd from "../pages/ProductAdd";
-import Sarkilar from "./Sarkilar"
+import SongDetail from "../pages/SongDetail";
 
 export default function Dashboard() {
   return (
@@ -18,12 +18,13 @@ export default function Dashboard() {
           <Grid.Column width={4}>
             <Categories />
           </Grid.Column>
-          <Grid.Column width={12}>
+          <Grid.Column width={10}>
             <Route exact path="/" component={ProductList} />
-            <Route exact path="/products" component={ProductList} />
-            <Route path="/products/:name" component={ProductDetail} />
+            <Route exact path="/songs" component={ProductList} />
+            <Route exact path="/songs/:name" component={SongDetail} />
+            <Route exact path="/creators/:name" component={CreatorDetail} />
             <Route path="/cart" component={CartDetail} />,
-            <Route path="/product/add" component={ProductAdd} />
+            <Route path="/song/add" component={ProductAdd} />
           </Grid.Column>
         </Grid.Row>
       </Grid>

@@ -1,10 +1,17 @@
-lena{
-  text-align: left;
-}
-
-.ProductDetail{
+#songGroup{
+  position: relative;
   text-align: center;
 }
+
+
+#holder {
+  border: 1px solid #FF8C00;
+  height: 200px;
+  width: 200px;
+  position:relative;
+  margin:10px;
+} 
+
 
 .ui.main.container{
   margin-top: 5em;

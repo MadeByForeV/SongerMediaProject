@@ -7,33 +7,39 @@ import { addToCart } from "../store/actions/cartActions"
 import { toast } from "react-toastify";
 
 
-export default function ProductList() {
+export default function ProductList(props) {
 
+
+
+
+    
     const dispatch = useDispatch()
 
 
-    const [products, setProducts] = useState([])
+    const [songs, setSongs] = useState([])
 
     useEffect(() => {
         let productService = new ProductService()
-        productService.getProducts().then(result => setProducts(result.data.data))
+        productService.getSongs().then(result => setSongs(result.data.data))
     }, [])
 
-    const handleAddToCart = (product) => {
-        dispatch(addToCart(product))
-        toast.success(`${product.productName} Sepete Eklendi!`)
+    const handleAddToCart = (song) => {
+        dispatch(addToCart(song))
+        toast.success(`${song.songName} Sepete Eklendi!`)
     }
 
+
+    const getSeoName = (song) => {
+        <h1>`{"asdfg"}`</h1>
+    }
     return (
         <div>
             <Table celled>
                 <Table.Header>
                     <Table.Row>
-                            <Table.HeaderCell>Ürün Adı</Table.HeaderCell>
-                            <Table.HeaderCell>Birim Fiyatı</Table.HeaderCell>
-                            <Table.HeaderCell>Stok Adedi</Table.HeaderCell>
-                            <Table.HeaderCell>Açıklama</Table.HeaderCell>
-                            <Table.HeaderCell>Kategori</Table.HeaderCell>
+                            <Table.HeaderCell>Şarkı İsmi</Table.HeaderCell>
+                            <Table.HeaderCell>Şarkı Süresi</Table.HeaderCell>
+                            <Table.HeaderCell>Şarkı Sahibi</Table.HeaderCell>
                             <Table.HeaderCell></Table.HeaderCell>
 
                     </Table.Row>
@@ -41,17 +47,16 @@ export default function ProductList() {
 
                 <Table.Body>
                     {
-                        products.map(product => (
-                            <Table.Row key={product.id}>
+                        songs.map(song => (
+                            <Table.Row key={song.id}>
                                 
-                                    <Table.Cell > <Link to={`/products/${product.productName}`}>{product.productName}</Link></Table.Cell>
-                                    <Table.Cell> <Link to={`/products/${product.productName}`}>{product.unitPrice}</Link></Table.Cell>
-                                    <Table.Cell> <Link to={`/products/${product.productName}`}>{product.unitsInStock}</Link></Table.Cell>
-                                    <Table.Cell> <Link to={`/products/${product.productName}`}>{product.quantityPerUnit}</Link></Table.Cell>
-                                    <Table.Cell> <Link to={`/products/${product.productName}`}>{product.category.categoryName}</Link></Table.Cell>
+                                    <Table.Cell > <Link to={`/songs/${song.seoName}`}>{song.songName}</Link></Table.Cell>
+                                    <Table.Cell> <Link to={`/songs/${song.seoName}`}>{song.songSure}</Link></Table.Cell>
+                                    <Table.Cell> <Link to={`/creators/${song.songCreator}`}>{song.songCreator}</Link></Table.Cell>
+                                    
                                 
 
-                                <Table.Cell><Button onClick={() => handleAddToCart(product)}>Sepete Ekle</Button></Table.Cell>
+                                <Table.Cell><Button onClick={() => handleAddToCart(song)}>Sepete Ekle</Button></Table.Cell>
                             </Table.Row>
 
                         ))

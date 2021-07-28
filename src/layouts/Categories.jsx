@@ -5,7 +5,9 @@ export default function Categories() {
     return (
         <div>
             <Menu pointing vertical>
+                
                 <Menu.Item
+
                     name= 'home' 
                 />
                 <Menu.Item

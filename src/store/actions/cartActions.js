@@ -1,18 +1,18 @@
 export const ADD_TO_CART = "ADD_TO_CART"
 export const REMOVE_FROM_CART = "REMOVE_FROM_CART"
 
-export function addToCart(product) {
+export function addToCart(song) {
     return {
         type: ADD_TO_CART,
-        payload: product,
+        payload: song,
     }
 }
 
-export function remoweFromCart(product) {
+export function remoweFromCart(song) {
     
     return {
         type: REMOVE_FROM_CART,
-        payload: product,
+        payload: song,
     }
 
 
